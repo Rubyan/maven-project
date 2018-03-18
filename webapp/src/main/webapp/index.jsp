@@ -1,1 +1,2 @@
-Hello World v2!
+Hello World!
+update from Amazon EC2!
