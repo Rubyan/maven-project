@@ -1,9 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('Init') {
+        stage('Build') {
             steps {
-                echo "Testing..."
+                sh "mvn clean package"
+            }
+            post {
+                success {
+                    echo 'Now Archiving...'
+                    archiveArtifacts artifacts '**/target/*.war'
+                }
             }
         }
     }
