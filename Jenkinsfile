@@ -22,12 +22,16 @@ stages{
             }
         }
 
-        stage ('Deployments'){
+        stage ('Keys') {
             steps {
                 echo "copying keys"
                 sh "cp /home/jenkins/tomcat-demo2.pem /tmp/key.pem"
                 sh "chmod 600 /tmp/key.pem"
             }
+        }
+
+        stage ('Deployments'){
+
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
